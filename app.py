@@ -18,14 +18,15 @@ pickup_address = "5-1257 Commercial Way, Squamish, BC"
 encoded_address = urllib.parse.quote(pickup_address)
 google_maps_url = f"https://google.com{encoded_address}"
 
-col_banner1, col_banner2 = st.columns()
+# FIX: Added '2' inside the brackets here so Streamlit knows to make 2 columns
+col_banner1, col_banner2 = st.columns(2)
 with col_banner1:
     st.info(f"📍 **Pickup Location:** {pickup_address} | 📞 **Questions?** Call/Text **604.657.6247**")
 with col_banner2:
     st.link_button("🗺️ Open in Google Maps", google_maps_url, use_container_width=True)
 
-# Split Layout for Customer Interface
-col1, col2 = st.columns()
+# FIX: Added '2' inside the brackets here as well
+col1, col2 = st.columns(2)
 
 with col1:
     st.header("1. Build Your Feast")
