@@ -7,7 +7,7 @@ import requests
 st.set_page_config(page_title="Sea-to-Sky Thanksgiving Dinners", page_icon="🦃", layout="wide")
 
 # Replace this with the real email address where you want to receive orders!
-YOUR_BUSINESS_EMAIL = "your-email@example.com" 
+YOUR_BUSINESS_EMAIL = "magssquamish@gmail.com" 
 
 # Mock Database / State Initialization (for the on-screen dashboard)
 if "orders" not in st.session_state:
@@ -19,7 +19,8 @@ st.subheader("Reserve your gourmet festive feast for local kitchen pickup")
 
 # Business Contact & Location Banner
 pickup_address = "5-1257 Commercial Way, Squamish, BC"
-encoded_address = urllib.parse.quote(pickup_address)
+# FIX: Cleaner encoding to guarantee the map link opens correctly on iOS, Android, and Web
+encoded_address = urllib.parse.quote_plus(pickup_address)
 google_maps_url = f"https://google.com{encoded_address}"
 
 col_banner1, col_banner2 = st.columns(2)
